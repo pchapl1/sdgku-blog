@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages', 
-    'posts'
+    'posts',
+
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -122,12 +125,13 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # MEDIA_URL = '/images/'
+STATICFILES_DIRS = [BASE_DIR / ("static")]
+    
 
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 
 
 # Default primary key field type
