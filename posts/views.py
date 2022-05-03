@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView, DetailView, ListView, UpdateView, DeleteView
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404
+
 
 from .forms import PostForm
 from .models import Post
@@ -41,5 +41,6 @@ class PostUpdateView(UpdateView):
 class PostDeleteView(DeleteView):
     model = Post
     template_name = 'confirm_delete.html'
+
     def get_success_url(self) -> str:
         return reverse_lazy('posts')
