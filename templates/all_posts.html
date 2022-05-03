@@ -15,11 +15,15 @@
             <div class="card-body">
                 <h6 class="card-subtitle"> {{ post.title }}</h6>
                 <p class="card-text"> {{ post.body}}</p>
-                <a href="">continue reading...</a>
+                <div class="btn-group">
+                    <a class="btn btn-outline-secondary" href="{% url 'post_detail' post.id %}">continue reading...</a>
+                    <a class="btn btn-outline-info" href="{% url 'update_post' post.id %}">edit</a>
+                    <a class="btn btn-outline-danger" href="{% url 'del_post' post.id %}">delete</a>
+                </div>
 
             </div>
             <div class="card-footer">
-                <p class="text-muted">posted by: {{ post.author }}  </p>
+                <p class="text-muted">posted by: {{ post.author | title }} on {{ post.created_on }} </p>
             </div>
         </div>
 
