@@ -3,8 +3,8 @@
 {% block title%}posts{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row d-flex justify-content-center mt-4">
+
+
         <h1 class="text-center">All Posts</h1>
         {% if posts %}
 
@@ -15,7 +15,7 @@
             <div class="card-body">
                 <h6 class="card-subtitle"> {{ post.title }}</h6>
                 <p class="card-text"> {{ post.body}}</p>
-                <div class="btn-group">
+                <div class="btn-group mb-3">
                     <a class="btn btn-outline-secondary" href="{% url 'post_detail' post.id %}">continue reading...</a>
                     <a class="btn btn-outline-info" href="{% url 'update_post' post.id %}">edit</a>
                     <a class="btn btn-outline-danger" href="{% url 'del_post' post.id %}">delete</a>
@@ -30,7 +30,7 @@
 
         {% endfor %}
         {% endif %}
-    </div>  
-</div>
+
+
 
 {% endblock %}
