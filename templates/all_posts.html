@@ -13,9 +13,13 @@
         <div class="card m-4">
             <h5 class="card-header">Post # {{ post.id }}</h5>
             <div class="card-body">
-                <h6 class="card-subtitle"></h6>
-                <p class="card-text"></p>
+                <h6 class="card-subtitle"> {{ post.title }}</h6>
+                <p class="card-text"> {{ post.body}}</p>
                 <a href="">continue reading...</a>
+
+            </div>
+            <div class="card-footer">
+                <p class="text-muted">posted by: {{ post.author }}  </p>
             </div>
         </div>
 
