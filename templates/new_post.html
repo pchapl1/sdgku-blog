@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+  new post
+{% endblock title %}new post
+
+{% block content %}
+
+    <h2 class="text-center">New Post</h2>
+    <form method="POST" class="form-class">
+        {% csrf_token %}
+  
+        {{form}}
+        <input type="submit" value="Create" class="btn btn-secondary">
+    </form>
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, modi. Illum maiores sapiente dolore cumque porro iste deserunt magnam cupiditate quidem eius quasi saepe laborum eaque, ut dolorum, blanditiis hic.
+
+{% endblock content %}
