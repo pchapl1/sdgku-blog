@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView, DetailView, ListView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 
@@ -14,10 +15,14 @@ class About(TemplateView):
     template_name = 'about.html'
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'new_post.html'
     form_class = PostForm
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class PostListView(ListView):
@@ -26,19 +31,23 @@ class PostListView(ListView):
     context_object_name = 'posts'
 
 
-class SinglePostView(DetailView):
+class SinglePostView(LoginRequiredMixin, DetailView):
     template_name = 'single_post.html'
     model = Post
     context_object_name = 'post'
 
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = 'update_post.html'
     form_class = PostForm
 
+    def form_valid(self, form):
+        form.instance.author == self.request.user
+        return super().form_valid(form)
 
-class PostDeleteView(DeleteView):
+
+class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'confirm_delete.html'
 

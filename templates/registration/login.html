@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Log In
+{% endblock title %}
+
+{% block content %}
+<div class="d-flex justify-content-center flex-column">
+    <h1>Log in</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Log In" class="btn btn-secondary">
+        <small>dont have an account? Click <a href="{% url 'signup' %}">here</a> to sign up</small>
+    </form>
+
+</div>
+{% endblock content %}
