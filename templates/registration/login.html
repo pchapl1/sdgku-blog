@@ -11,7 +11,8 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Log In" class="btn btn-secondary">
-        <small>dont have an account? Click <a href="{% url 'signup' %}">here</a> to sign up</small>
+        <small>dont have an account? Click <a href="{% url 'signup' %}">here</a> to sign up</small><br>
+        <small>forgot password? Click <a href="{% url 'password_reset' %}">here</a> to reset it</small>
     </form>
 
 </div>
